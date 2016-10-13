@@ -62,7 +62,7 @@
               </ul>
             </li>
             <li>
-              <a href="vietnamguide" target="_self">おすすめツアー</a>
+              <a href="/vietnamguide" target="_self">おすすめツアー</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -93,15 +93,15 @@
         <div class="row" style="font:left">
           <div class="col-lg-3 col-md-3 col-sm-4">
             <div class="list-group table-of-contents">
-              <a class="list-group-item" href="#all" data-toggle="tab">概要</a>
-              <a class="list-group-item" href="#local" data-toggle="tab" id="to-local">地域</a>
-              <a class="list-group-item" href="#world" data-toggle="tab" id="to-world">世界遺産</a>
-              <a class="list-group-item" href="#natural" data-toggle="tab">自然風景</a>
-              <a class="list-group-item" href="#food" data-toggle="tab" id="to-food">食べ物</a>
-              <a class="list-group-item" href="#festival" data-toggle="tab" id="to-festival">お祭り</a>
-              <a class="list-group-item" href="#q-a" data-toggle="tab">Q&A</a>
-              <a class="list-group-item" href="#question" data-toggle="tab">ご質問・お問い合わせ</a>
-              <a class="list-group-item" href="#others" data-toggle="tab">その他</a>
+              <a class="list-group-item" href="/vietnamguide">概要</a>
+              <a class="list-group-item" href="/vietnamguide/local">地域</a>
+              <a class="list-group-item" href="/vietnamguide/world">世界遺産</a>
+              <a class="list-group-item" href="/vietnamguide">自然風景</a>
+              <a class="list-group-item" href="/vietnamguide">食べ物</a>
+              <a class="list-group-item" href="/vietnamguide/festival">お祭り</a>
+              <a class="list-group-item" href="/vietnamguide">Q&A</a>
+              <a class="list-group-item" href="/vietnamguide/question">ご質問・お問い合わせ</a>
+              <a class="list-group-item" href="/vietnamguide">その他</a>
             </div>
           </div>
           <div class="col-lg-9">

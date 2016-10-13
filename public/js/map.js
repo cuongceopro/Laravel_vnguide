@@ -3,14 +3,9 @@ var latln, mapOptions;
 var zoom;
 var longtitude, latitude;
 var json_path;
-var markers_data;
+var markers_data = [];
 
 function initialize(link) {
-	// 中心の位置座標を指定する
-	//var $script     = $('#map');
-	//var string      = JSON.parse($script.attr('data-string'));
-	//var link = JSON.parse($script.attr('data-link'));
-
 
 	switch(link){
 		case 'all':
@@ -19,9 +14,37 @@ function initialize(link) {
 			zoom = 5;
 			json_path = '/GeoJson/country.json';
 			break;
+		case 'world':
+			longitude = 16;
+			latitude = 107;
+			zoom = 5;
+			json_path = '/GeoJson/country.json';
+			markers_data = [
+				[20.876777, 107.137184],
+				[17.5, 106.175],
+				[20.077778, 105.604722],
+				[21.028333, 105.853333],
+				[16.462622, 107.585217],
+				[15.878605, 108.33483],
+				[15.790422, 108.107886],
+				[20.259276, 105.950441]
+			];
+			break;
+		case 'local':
+			longitude = 16;
+			latitude = 107;
+			zoom = 5;
+			json_path = '/GeoJson/all.json';
+			break;
+		case 'festival':
+			longitude = 16;
+			latitude = 107;
+			zoom = 5;
+			json_path = '/GeoJson/country.json';
+			break;
 		case 'spot_westen_north':
-			longitude = 24.4;
-			latitude = 102;
+			longitude = 21.5;
+			latitude = 104;
 			zoom = 7;
 			json_path = '/GeoJson/westen-north.json';
 			markers_data = [
@@ -35,8 +58,8 @@ function initialize(link) {
 			];
 			break;
 		case 'spot_east_north':
-			longitude = 24.2;
-			latitude = 103.5;
+			longitude = 21.5;
+			latitude = 106.2;
 			zoom = 7;
 			json_path = '/GeoJson/east-north.json';
 			markers_data = [
@@ -54,9 +77,9 @@ function initialize(link) {
 			];
 			break;
 		case 'spot_red_river_delta':
-			longitude = 24.2;
-			latitude = 103.5;
-			zoom = 7;
+			longitude = 20.8;
+			latitude = 106;
+			zoom = 8;
 			json_path = '/GeoJson/red-river-delta.json';
 			markers_data = [
 				[21.152439, 106.381463],
@@ -65,8 +88,8 @@ function initialize(link) {
 			];
 			break;
 		case 'spot_north_center':
-			longitude = 23.5;
-			latitude = 101.5;
+			longitude = 18.8;
+			latitude = 105.5;
 			zoom = 6;
 			json_path = '/GeoJson/center-north.json';
 			markers_data = [
@@ -76,8 +99,8 @@ function initialize(link) {
 			];
 			break;
 		case 'spot_southern_center':
-			longitude = 18;
-			latitude = 103.5;
+			longitude = 14.2;
+			latitude = 108.5;
 			zoom = 6;
 			json_path = '/GeoJson/center-southern.json';
 			markers_data = [
@@ -92,9 +115,9 @@ function initialize(link) {
 			];
 			break;
 		case 'spot_taynguyen':
-			longitude = 16;
-			latitude = 103.5;
-			zoom = 6;
+			longitude = 13.5;
+			latitude = 107.5;
+			zoom = 7;
 			json_path = '/GeoJson/taynguyen.json';
 			markers_data = [
 				[14.581763, 108.274824],
@@ -104,9 +127,9 @@ function initialize(link) {
 			];
 			break;
 		case 'spot_east_southern':
-			longitude = 12.5;
-			latitude = 105.5;
-			zoom = 8;
+			longitude = 11.0;
+			latitude = 106.5;
+			zoom = 7;
 			json_path = '/GeoJson/east-southern.json';
 			markers_data = [
 				[11.384160, 106.175780],
@@ -116,8 +139,8 @@ function initialize(link) {
 			];
 			break;
 		case 'spot_mekong_delta':
-			longitude = 12.5;
-			latitude = 103.5;
+			longitude = 10.0;
+			latitude = 105.5;
 			zoom = 7;
 			json_path = '/GeoJson/mekong-delta.json';
 			markers_data = [
@@ -127,6 +150,14 @@ function initialize(link) {
 				[10.637096, 106.461127]
 			];
 			break;
+		case 'food_east_north':
+		case 'food_westen_north':
+		case 'food_red_river_delta':
+		case 'food_north_center':
+		case 'food_southern_center':
+		case 'food_taynguyen':
+		case 'food_east_southern':
+		case 'food_mekong_delta':
 	}
 
 	latlng = new google.maps.LatLng(longitude , latitude);
