@@ -42,6 +42,19 @@ function initialize(link) {
 			zoom = 5;
 			json_path = '/GeoJson/country.json';
 			break;
+		case 'food':
+			longitude = 16;
+			latitude = 107;
+			zoom = 5;
+			json_path = '/GeoJson/all.json';
+			break;
+		case 'spot':
+			longitude = 16;
+			latitude = 107;
+			zoom = 5;
+			json_path = '/GeoJson/all.json';
+			break;
+		case 'westen_north':
 		case 'spot_westen_north':
 			longitude = 21.5;
 			latitude = 104;
@@ -57,6 +70,13 @@ function initialize(link) {
 				[20.773745, 105.200263]
 			];
 			break;
+		case 'food_westen_north':
+			longitude = 21.5;
+			latitude = 104;
+			zoom = 7;
+			json_path = '/GeoJson/westen-north.json';
+			break;
+		case 'east_north':
 		case 'spot_east_north':
 			longitude = 21.5;
 			latitude = 106.2;
@@ -76,6 +96,13 @@ function initialize(link) {
 				[21.472296, 105.588387]
 			];
 			break;
+		case 'food_east_north':
+			longitude = 21.5;
+			latitude = 106.2;
+			zoom = 7;
+			json_path = '/GeoJson/east-north.json';
+			break;
+		case 'red_river_delta':
 		case 'spot_red_river_delta':
 			longitude = 20.8;
 			latitude = 106;
@@ -87,6 +114,13 @@ function initialize(link) {
 				[20.564173, 105.810991]
 			];
 			break;
+		case 'food_red_river_delta':
+			longitude = 20.8;
+			latitude = 106;
+			zoom = 8;
+			json_path = '/GeoJson/red-river-delta.json';
+			break;
+		case 'north_center':
 		case 'spot_north_center':
 			longitude = 18.8;
 			latitude = 105.5;
@@ -98,6 +132,13 @@ function initialize(link) {
 				[16.247139, 108.075819]
 			];
 			break;
+		case 'food_north_center':
+			longitude = 18.8;
+			latitude = 105.5;
+			zoom = 6;
+			json_path = '/GeoJson/center-north.json';
+			break;
+		case 'southern_center':
 		case 'spot_southern_center':
 			longitude = 14.2;
 			latitude = 108.5;
@@ -114,6 +155,13 @@ function initialize(link) {
 				[10.965746, 108.310597]
 			];
 			break;
+		case 'food_southern_center':
+			longitude = 14.2;
+			latitude = 108.5;
+			zoom = 6;
+			json_path = '/GeoJson/center-southern.json';
+			break;
+		case 'taynguyen':
 		case 'spot_taynguyen':
 			longitude = 13.5;
 			latitude = 107.5;
@@ -126,6 +174,13 @@ function initialize(link) {
 				[12.702351, 107.716250]
 			];
 			break;
+		case 'food_taynguyen':
+			longitude = 13.5;
+			latitude = 107.5;
+			zoom = 7;
+			json_path = '/GeoJson/taynguyen.json';
+			break;
+		case 'east_southern':
 		case 'spot_east_southern':
 			longitude = 11.0;
 			latitude = 106.5;
@@ -138,6 +193,13 @@ function initialize(link) {
 				[8.682374, 106.607208]
 			];
 			break;
+		case 'food_east_southern':
+			longitude = 11.0;
+			latitude = 106.5;
+			zoom = 7;
+			json_path = '/GeoJson/east-southern.json';
+			break;
+		case 'mekong_delta':
 		case 'spot_mekong_delta':
 			longitude = 10.0;
 			latitude = 105.5;
@@ -150,14 +212,12 @@ function initialize(link) {
 				[10.637096, 106.461127]
 			];
 			break;
-		case 'food_east_north':
-		case 'food_westen_north':
-		case 'food_red_river_delta':
-		case 'food_north_center':
-		case 'food_southern_center':
-		case 'food_taynguyen':
-		case 'food_east_southern':
 		case 'food_mekong_delta':
+			longitude = 10.0;
+			latitude = 105.5;
+			zoom = 7;
+			json_path = '/GeoJson/mekong-delta.json';
+			break;
 	}
 
 	latlng = new google.maps.LatLng(longitude , latitude);

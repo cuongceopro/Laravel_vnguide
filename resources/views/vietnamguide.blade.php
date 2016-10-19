@@ -51,14 +51,14 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">地域<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="/vietnamguide/spot_east_north" target="_self">東北部</a></li>
-                <li><a href="/vietnamguide/spot_westen_north" target="_self">西北部</a></li>
-                <li><a href="/vietnamguide/spot_red_river_delta">紅河デルタ</a></li>
-                <li><a href="/vietnamguide/spot_north_center">中北部</a></li>
-                <li><a href="/vietnamguide/spot_southern_center">中南部</a></li>
-                <li><a href="/vietnamguide/spot_taynguyen">タイ・グエン</a></li>
-                <li><a href="/vietnamguide/spot_east_southern">東南部</a></li>
-                <li><a href="/vietnamguide/spot_mekong_delta">メコン・デルタ</a></li>
+                <li><a href="/vietnamguide/east_north" target="_self">東北部</a></li>
+                <li><a href="/vietnamguide/westen_north" target="_self">西北部</a></li>
+                <li><a href="/vietnamguide/red_river_delta">紅河デルタ</a></li>
+                <li><a href="/vietnamguide/north_center">中北部</a></li>
+                <li><a href="/vietnamguide/southern_center">中南部</a></li>
+                <li><a href="/vietnamguide/taynguyen">タイ・グエン</a></li>
+                <li><a href="/vietnamguide/east_southern">東南部</a></li>
+                <li><a href="/vietnamguide/mekong_delta">メコン・デルタ</a></li>
               </ul>
             </li>
             <li>
@@ -96,11 +96,11 @@
               <a class="list-group-item" href="/vietnamguide">概要</a>
               <a class="list-group-item" href="/vietnamguide/local">地域</a>
               <a class="list-group-item" href="/vietnamguide/world">世界遺産</a>
-              <a class="list-group-item" href="/vietnamguide">自然風景</a>
-              <a class="list-group-item" href="/vietnamguide">食べ物</a>
+              <a class="list-group-item" href="/vietnamguide/spot">観光地</a>
+              <a class="list-group-item" href="/vietnamguide/food">食べ物</a>
               <a class="list-group-item" href="/vietnamguide/festival">お祭り</a>
               <a class="list-group-item" href="/vietnamguide">Q&A</a>
-              <a class="list-group-item" href="/vietnamguide/question">ご質問・お問い合わせ</a>
+              <a class="list-group-item" href="/vietnamguide">ご質問・お問い合わせ</a>
               <a class="list-group-item" href="/vietnamguide">その他</a>
             </div>
           </div>
@@ -110,10 +110,45 @@
               <div class="bs-component">
                 <div class="col-lg-6">
                 <?php
+
+                  function print_detail($link_data){
+                    $detail = DB::table('Detail')->where('link',$link_data)->get();
+                    //print_r($detail) ;
+                    foreach ($detail as $val) {
+                      echo '<h4>'.$val->name.'</h4>';
+                      echo '<div><img src="/Image/'.$link_data.'/'.$val->image.'" width="400" height="300"/></div>';
+                      echo '<p>'.$val->text.'</p>';
+                    }
+                  }
+
                   $data_link = $link;
                   $overview = DB::table('Overview')->where('link',$link)->first();
                   echo '<h2>'.$overview->title.'</h2>';
                   echo '<p>'.$overview->text.'</p>';
+
+                  print_detail($link);
+
+                  $detail_overview = DB::table('Detail_overview')->where('link',$link)->get();
+                  foreach($detail_overview as $val){
+                    echo '<h3>'.$val->name.'</h3>';
+                    $DB_link = $val->hyper_link;
+                    $local_data = DB::table('Overview')->where('link',$DB_link)->first();
+                    echo '<p>'.$local_data->text.'</p>';
+                    echo '<a href="/vietnamguide/'.$DB_link.'">もっと見る</a>';
+                  }
+
+                  $local = DB::table('local')->where('link',$link)->first();
+                  //var_dump($local);
+                  if(count($local) != 0){
+                    echo '<h3>観光地</h3>';
+                    //echo '<h2>'.$local->link_spot.'</h2>';
+                    print_detail($local->link_spot);
+                    echo '<h3>食べ物</h3>';
+                    print_detail($local->link_food);
+
+                  }
+                  //print_r($detail);
+                  //echo $detail->name;
 
 
                   //echo '</div>';
@@ -122,7 +157,7 @@
                   //echo '</div>';
                   //echo '<script type="text/javascript" src="{{{asset('js/map.js')}}}"></script>'
 
-                  $string      = "westen_north";
+                  //$string      = "westen_north";
                   //$string = array("hoge" => "fuga");
 
               ?>
