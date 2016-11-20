@@ -23,6 +23,11 @@ class HelloControler extends Controller
     {
       return view('vietnamguide',['link' => $link]);
     }
+
+    public function get_data_infowindow($key=''){
+      return view('get_data_infowindow',['key' => $key]);
+    }
+
     public function getDB(Request $request){
 
       //$users = DB::connection('test')->select(id,text);

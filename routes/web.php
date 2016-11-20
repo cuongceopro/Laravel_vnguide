@@ -27,6 +27,8 @@ Route::get('vietnamguide/{link?}', 'HelloControler@getVnguide');
 
 Route::get('getDB', 'HelloControler@getDB');
 
+Route::get('get_data_infowindow/{key?}','HelloControler@get_data_infowindow');
+
 /*
 Route::get('getDB', function(){
   //$users = DB::connection('test')->select(id,text);
